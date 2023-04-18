@@ -1,0 +1,27 @@
+package com.domo.api.loan.request
+
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
+
+/**
+ * @author domo
+ * Created on 2023/04/18
+ */
+@RestController
+@RequestMapping("/fintech/api/v1")
+class LoanRequestController(
+    private val loanRequestService: LoanRequestService
+) {
+
+    @PostMapping("/request")
+    fun loanRequest(
+        @RequestBody loanRequestInputDto: LoanRequestDto.LoanRequestInputDto
+    ): ResponseEntity<LoanRequestDto.LoanRequestResponseDto> {
+        return ResponseEntity.ok(
+            loanRequestService.loanRequestMain(loanRequestInputDto)
+        )
+    }
+}
