@@ -13,7 +13,7 @@ import javax.crypto.spec.SecretKeySpec
 @Component
 class EncryptComponent {
     companion object {
-        private const val secretKey = "012345678901234567890123456789"
+        private const val secretKey = "01234567890123456789012345678901"
     }
 
     private val encoder = Base64.getEncoder();
