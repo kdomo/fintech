@@ -1,6 +1,7 @@
 package com.domo.api.loan.request
 
 import com.domo.domain.domain.UserInfo
+import com.domo.kafka.dto.LoanRequestDto
 
 /**
  * @author domo
@@ -17,4 +18,5 @@ data class UserInfoDto(
             userKey, userRegistrationNumber, username, userIncomeAmount
         )
 
+    fun toLoanRequestKafkaDto() = LoanRequestDto(userKey, userRegistrationNumber, userIncomeAmount, username)
 }
